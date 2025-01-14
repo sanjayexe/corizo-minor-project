@@ -1,0 +1,46 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+  <head>
+    <%- include("./partials/bootstrap.ejs") %>
+  </head>
+
+  <body class="container mt-5 bg-dark text-light">
+    <%- include("./partials/nav.ejs") %>
+
+      <div class="details content">
+        <h1 class="text-light">Profile:</h1>
+        <h2 class="text-success">
+          <%= user.name%>
+        </h2>
+        <div>
+          <p class="text-light"><span class="text-success">Email:</span>
+            <%= user.email %>
+          </p>
+          <p class="text-light"><span class="text-success">Password:</span>
+            <%= user.password %>
+          </p>
+          <p class="text-light"><span class="text-success">Address:</span>
+            <%= user.address %>
+          </p>
+          <p class="text-light"><span class="text-success">Number:</span>
+            <%= user.number %>
+          </p>
+        </div>
+      </div>
+
+
+      <div class="operation-btn d-flex gap-3">
+        <br>
+        <form action="/users/<%= user.name %>" method="post">
+          <button type="submit" class="bg-danger">Remove</button>
+        </form>
+        <form action="/edit/<%= user.name %>/<%= action %>" method="edit">
+          <button type="submit" class="bg-warning">Update</button>
+        </form>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+  </body>
+
+</html>
